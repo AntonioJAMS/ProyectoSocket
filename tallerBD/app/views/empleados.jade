@@ -1,0 +1,47 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s12
+    - if(employees)
+     table.hoverable.responsive-table.bordered
+      tr
+       th ID
+       th LastName
+       th FirstName
+       th Title
+       th TitleOfC
+       th BirthDate
+       th HireDate
+       th Address
+       th HomePhone
+       th Extension
+       th ReportsTo
+        each empleado in employees
+         tr
+          td #{empleado.EmployeeID}
+          td #{empleado.LastName}
+          td #{empleado.FirstName}
+          td #{empleado.Title}
+          td #{empleado.TitleOfCourtesy}
+          td #{empleado.BirthDate}
+          td #{empleado.HireDate}
+          td #{empleado.Address}
+          td #{empleado.HomePhone}
+          td #{empleado.Extension}
+          td #{empleado.ReportsTo}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna producto

@@ -1,0 +1,43 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s10
+    - if(products)
+     table.hoverable.responsive-table.bordered
+      tr.orange.accent-2
+       th ProductID
+       th ProductName
+       th SupplierID
+       th CategoryID
+       th QuantityPerUnit
+       th UnitPrice
+       th UnitsInStock
+       th UnitsOnOrder
+       th ReorderLevel
+        each producto in products
+         tr
+          td #{producto.ProductID}
+          td #{producto.ProductName}
+          td #{producto.SupplierID}
+          td #{producto.CategoryID}
+          td #{producto.QuantityPerUnit}
+          td #{producto.UnitPrice}
+          td #{producto.UnitsInStock}
+          td #{producto.UnitsOnOrder}
+          td #{producto.ReorderLevel}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna producto

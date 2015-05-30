@@ -1,0 +1,41 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s12
+    - if(customers)
+     table.hoverable.responsive-table
+      tr.orange.accent-2
+       th ID
+       th Company
+       th Contact
+       th ContactTitle
+       th Address
+       th City
+       th Phone
+       th Fax
+        each cliente in customers
+         tr
+          td #{cliente.CustomerID}
+          td #{cliente.CompanyName}
+          td #{cliente.ContactName}
+          td #{cliente.ContactTitle}
+          td #{cliente.Address}
+          td #{cliente.City}
+          td #{cliente.Phone}
+          td #{cliente.Fax}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna cliente

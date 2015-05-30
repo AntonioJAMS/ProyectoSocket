@@ -1,0 +1,31 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s12
+    - if(regions)
+     table.hoverable.responsive-table.bordered
+      tr.orange.accent-2
+       th RegionID
+       th RegionDescription
+    
+        each region in regions
+         tr
+          td #{region.RegionID}
+          td #{region.RegionDescription}
+
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna categoria

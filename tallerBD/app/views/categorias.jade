@@ -1,0 +1,33 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s12
+    - if(categories)
+     table.hoverable.responsive-table.bordered
+      tr.orange.accent-2
+       th CategoryID
+       th CategoryName
+       th Description
+    
+        each categoria in categories
+         tr
+          td #{categoria.CategoryID}
+          td #{categoria.CategoryName}
+          td #{categoria.Description}
+
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna categoria

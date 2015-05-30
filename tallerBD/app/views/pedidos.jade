@@ -1,0 +1,45 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50')  
+  div.row
+   div.col.s12
+    - if(orders)
+     table.hoverable.responsive-table
+      tr.orange.accent-2
+       th ID
+       th CustoID
+       th EmploID
+       th OrdDate
+       th ReqDate
+       th ShipDate
+       th ShipVia
+       th Freight
+       th ShipName
+       th ShipAddress
+        each pedido in orders
+         tr
+          td #{pedido.OrderID}
+          td #{pedido.CustomerID}
+          td #{pedido.EmployeeID}
+          td #{pedido.OrderDate}
+          td #{pedido.RequiredDate}
+          td #{pedido.ShippedDate}
+          td #{pedido.ShipVia}
+          td #{pedido.Freight}
+          td #{pedido.ShipName}
+          td #{pedido.ShipAddress}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna pedido

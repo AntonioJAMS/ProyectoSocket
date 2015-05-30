@@ -1,0 +1,36 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50') 
+  div.row
+   div.col.s12
+    - if(orderdetails)
+     table.hoverable.responsive-table.bordered
+      tr.orange.accent-2
+       th ID
+       th ProductID
+       th UnitPrice
+       th Quantity
+       th Discount
+    
+        each detalle in orderdetails
+         tr
+          td #{detalle.OrderID}
+          td #{detalle.ProductID}
+          td #{detalle.UnitPrice}
+          td #{detalle.Quantity}
+          td #{detalle.Discount}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna detalle del pedido

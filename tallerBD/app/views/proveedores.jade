@@ -1,0 +1,43 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50')  
+  div.row
+   div.col.s10
+    - if(suppliers)
+     table.hoverable.responsive-table
+      tr.orange.accent-2
+       th ID
+       th Company
+       th Contact
+       th ContactTitle
+       th Address
+       th City
+       th Region
+       th Country
+       th Phone
+        each proveedor in suppliers
+         tr
+          td #{proveedor.SupplierID}
+          td #{proveedor.CompanyName}
+          td #{proveedor.ContactName}
+          td #{proveedor.ContactTitle}
+          td #{proveedor.Address}
+          td #{proveedor.City}
+          td #{proveedor.Region}
+          td #{proveedor.Country}
+          td #{proveedor.Phone}
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ninguna proveedor

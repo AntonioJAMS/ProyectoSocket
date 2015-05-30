@@ -1,0 +1,33 @@
+extends layout
+
+block content
+ div.container
+  div.row
+   div.col.s9
+    h4 #{title}
+   div.col.s3 
+    br
+    a(href='/', title='Inicio')
+     img(src='img/home.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/left3.png', width='50', height='50')
+    a(href='/', title='Inicio')
+     img(src='img/right3.png', width='50', height='50')
+  div.row
+   div.col.s12
+    - if(territories)
+     table.hoverable.responsive-table.bordered
+      tr.orange.accent-2
+       th ID
+       th Description
+       th RegionID
+    
+        each territorio in territories
+         tr
+          td #{territorio.TerritoryID}
+          td #{territorio.TerritoryDescription}
+          td #{territorio.RegionID}
+
+    - else
+     div.card-panel.teal
+      span.white-text No tienes ningun territorio

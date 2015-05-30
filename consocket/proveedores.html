@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name='viewport' content='width=device-width'>
+	<title>Document</title>
+	<link rel="stylesheet" href="css/materialize.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/materialize.js"></script>
+	
+    <script id="mi-plantilla" type="text/x-handlebars-template">
+
+    	{{#if suppliers}}
+    		<div class="row">
+			<br>
+				<div class="col s5 offset-s7">
+					<img src="img/user2.png" width="35" height="35">
+          			<span class="flow-text cyan-text">  {{number}} Total Usuarios en la tabla.</span>
+				</div>
+			</div>
+    		<div class="row">
+				<div class="col s12">
+					<h3 class="center-align flow-text">Proveedores</h3>
+					<table class="hoverable responsive-table bordered">
+						<tr class="amber darken-4 white-text">
+							<th>ID</th>
+							<th>CompanyName</th> 
+							<th>ContactName</th> 
+							<th>ContactTitle</th> 
+							<th>Address</th> 
+							<th>City</th> 
+							<th>Country</th> 
+							<th>Phone</th>				
+						</tr>
+						{{#each suppliers}}
+						<tr>
+							<td>{{SupplierID}}</td>
+							<td>{{CompanyName}}</td>
+							<td>{{ContactName}}</td>
+							<td>{{ContactTitle}}</td>
+							<td>{{Address}}</td>
+							<td>{{City}}</td>
+							<td>{{Country}}</td>
+							<td>{{Phone}}</td>			
+						</tr>
+	          			{{/each}}	
+					</table>			
+				</div>			
+			</div>		
+    	{{else}}
+    		<p>No hay da</p>
+    	{{/if}}
+   
+    </script>
+</head>
+<body>
+	<nav class="orange accent-4">
+		<div class="nav-wrapper">
+			<a href="index.html" class="brand-logo"> Sockets</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="empleados.html">Empleados</a></li>
+					<li><a href="productos.html">Productos</a></li>
+					<li><a href="clientes.html">Clientes</a></li>
+					<li><a href="proveedores.html">Proveedores</a></li>
+					<li><a href="pedidos.html">Pedidos</a></li>
+					<li><a href="regiones.html">Regiones</a></li>
+					<li><a href="territorios.html">Territorios</a></li>
+					<li><a href="categorias.html">Categorias</a></li>
+				</ul>
+		</div>
+	</nav>
+	<div class="container">
+		
+		<div id="contenido">
+			
+		</div>
+	</div>
+
+	<footer class="page-footer orange accent-4">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Sirviendo datos mediante Sockets</h5>
+					<p class="grey-text text-lighten-4">
+						Conexion de sqlite3 y el framework express.js de nodejs.
+					</p> 			
+				</div>		
+			</div>		
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				<p>© Antonio Medina Sanchez</p>		
+			</div>		
+		</div>	
+	</footer>
+	
+	<script src="http://23.99.89.126:8083/socket.io/socket.io.js"></script>
+	
+    <script>
+    $(document).ready(function(){
+    	
+		var socket = io.connect("http://23.99.89.126:8083");
+		var origen = $('#mi-plantilla').html();
+		var plantilla = Handlebars.compile(origen);
+		socket.emit('message', {tabla:'proveedores'});
+		socket.on('users',function(data){
+			var datos = data;
+			$('#contenido').html(plantilla(datos));
+			$('#usuario').html(plantilla(datos));
+		});
+    });
+    </script>
+	<script src="js/handlebars.js"></script>
+
+</body>
+</html>
+   

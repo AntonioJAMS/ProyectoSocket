@@ -1,0 +1,62 @@
+extends layout
+
+block content
+ div.container
+  h3 #{title}
+  div.row
+   div.col.s9
+    div.card
+     div.card-image
+      img(src="img/Northwind_diagram.jpg" width="770" heigth="470")
+     div.card-content
+      p Modelo de la base de datos northwind para Sqlite3.
+     div.card-action
+      a(href="#") Descarga
+   div.col.s3.orange.accent-4
+    span.white-text
+        h5 Tablas
+    img(src="img/cliente.png" width="25" heigth="25")
+    a(href="/clientes") 
+     span.white-text Clientes
+    br
+    img(src="img/empleado.png" width="25" heigth="25")
+    a(href="/empleados") 
+     span.white-text Empleados
+    br
+    img(src="img/proveedor.png" width="25" heigth="25")
+    a(href="/proveedores") 
+     span.white-text Proveedores
+    br
+    img(src="img/producto.png" width="25" heigth="25") 
+    a(href="/productos") 
+     span.white-text Productos
+    br
+    img(src="img/categorias.png" width="25" heigth="25")
+    a(href="/categorias") 
+     span.white-text Categorias
+    br
+    img(src="img/order.png" width="25" heigth="25")
+    a(href="/pedidos") 
+     span.white-text Pedidos
+    br
+    img(src="img/order2.png" width="25" heigth="25")
+    a(href="/detalle-pedido") 
+     span.white-text Detalles Pedido
+    br
+    img(src="img/trans.png" width="25" heigth="25")
+    a(href="/categorias") 
+     span.white-text Transportista
+    br
+    img(src="img/mappa.png" width="25" heigth="25")
+    a(href="/territorios") 
+     span.white-text Territorios
+    br
+    img(src="img/region.png" width="25" heigth="25")
+    a(href="/regiones") 
+     span.white-text Regiones
+    br
+    img(src="img/empterri.png" width="25" heigth="25")
+    a(href="/empleados-territorios") 
+     span.white-text Emp-Territorios
+     
+

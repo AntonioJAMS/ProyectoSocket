@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel='stylesheet', href='../css/materialize.css')
+    block js
+      if ENV_DEVELOPMENT
+        script(src='http://localhost:35729/livereload.js')
+        script(type='text/javascript' src='../js/materialize.js')
+  body
+    nav.orange.accent-4
+      div.nav-wrapper
+        a(href="#" class="brand-logo") SQLite
+          ul(id="nav-mobile" class="right hide-on-med-and-down")
+            
+    block content
+
+    footer.page-footer.orange.accent-4
+     div.container
+      div.row
+       div.col.l6.s12
+        h5.white-text Taller de base de datos
+        p.grey-text.text-lighten-4 Conexion de sqlite3 y el framework express.js de nodejs .
+     div.footer-copyright
+      div.container
+       p © Antonio Medina     
+       a(class="grey-text text-lighten-4 right" href="#!") More Links
+
+    script(type='text/javascript' src="https://code.jquery.com/jquery-2.1.1.min.js")
+
+
